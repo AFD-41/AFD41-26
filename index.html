@@ -3614,6 +3614,8 @@ Macro.add('message', {
         &lt;&lt;set $phase to ($money gte 2000 ? 0 : 1)&gt;&gt;
         &lt;&lt;set $money -= ($money gte 2000 ? 2000 : $money)&gt;&gt;\
         &lt;&lt;/link&gt;&gt;
+      &lt;&lt;else&gt;&gt;\
+        @@color:green;你沒有任何錢能給他。@@
       &lt;&lt;/if&gt;&gt;\
       &lt;&lt;link 無視對方 撞科比3&gt;&gt;\
         &lt;&lt;set $phase to 2&gt;&gt;
@@ -3644,7 +3646,15 @@ Macro.add('message', {
       往好處想，他似乎對你這「窮鬼」不感興趣。即使不爽，但至少他並沒有繼續為難你。
     &lt;&lt;case 2&gt;&gt;\
       你和對方打了一架，@@color:red;很明顯你不是眼前這名男子的對手。@@
-      他從你身上順走了一些錢。@@color:red; | - NT$&lt;&lt;=($money gte 3000 ? 3000 : $money)&gt;&gt;@@&lt;&lt;set $money -= ($money gte 3000 ? 3000 : $money)&gt;&gt;
+      &lt;&lt;if $money gt 0&gt;&gt;\
+        他從你身上順走了一些錢。@@color:red; | - NT$&lt;&lt;=($money gte 3000 ? 3000 : $money)&gt;&gt;@@&lt;&lt;set $money -= ($money gte 3000 ? 3000 : $money)&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+        他試圖從你身上順走一些錢，但一無所獲。
+        「連一元都沒有？」他難以置信地看著你。「……真是個死窮鬼。」
+        你想抗議自己並不是窮，只是把錢花得差不多了而已。
+
+        他看起來不想在你身上浪費哪怕再多一秒的時間，就這麼惱怒地離開了。
+      &lt;&lt;/if&gt;&gt;\
 
       你只是想隨便逛個場次，卻遇到這種怪咖。
       你忍不住握緊拳頭，心裡泛起一陣不安。&lt;&lt;stat 自控 -1&gt;&gt;&lt;&lt;stat 體力 -2&gt;&gt;&lt;&lt;stamina -2&gt;&gt;
